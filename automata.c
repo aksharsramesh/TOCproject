@@ -54,11 +54,33 @@ int isAccepted(char str[]){
         return 0; 
 }
 int main(){ 
-    char str[] = "aaaabbaab"; 
-    if (isAccepted(str)) 
-        printf("ACCEPTED\n"); 
-    else
-        printf("NOT ACCEPTED\n"); 
+    char *str;
+    int size, option;
+    printf("Automata To Accept Strings Ending With bab\n\n");
+    while(1){
+        printf("1. Check New String\n2. Exit\n");
+        printf("Enter Option\n");
+        scanf("%d", &option);
+        switch(option){
+            case 1:{
+                printf("\nEnter Size of String:\n");
+                scanf("%d", &size);
+                str = (char*)malloc(sizeof(char));
+                printf("Enter String:\n");
+                scanf("%s", str);
+                if(isAccepted(str))
+                    printf("ACCEPTED\n");
+                else
+                    printf("NOT ACCEPTED\n");
+                printf("*************\n\n");
+                free(str);
+                break;
+            }
+            case 2:{
+                exit(0);
+            }
+            default:{}
+        }
+    }
     return 0; 
 } 
-
